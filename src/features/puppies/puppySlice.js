@@ -25,19 +25,17 @@ const puppyApi = api.injectEndpoints({
     }),
     //NEW
     getPuppy: build.query({
-      query: (id) => `/puppies/${id}`,
+      query: (id) => `/players/${id}`,
       providesTags: ["Puppy"],
       transformResponse: (response) => response.data,
-      transformErrorResponse: (error) => {
-        console.error(`Error fetching puppy with ID ${id}:`, error);
-        return error;
+      transformErrorResponse: (error) => error,
       },
-    }),
+    ),
     //NEW
     //NEW
     addPuppy: build.mutation({
       query: (newPuppy) => ({
-        url: "/puppies",
+        url: "/players",
         method: "POST",
         body: newPuppy,
       }),
@@ -52,7 +50,7 @@ const puppyApi = api.injectEndpoints({
     //NEW
     deletePuppy: build.mutation({
       query: (id) => ({
-        url: `/puppies/${id}`,
+        url: `/players/${id}`,
         method: "DELETE",
       }),
       //NEW

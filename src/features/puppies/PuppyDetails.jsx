@@ -36,18 +36,19 @@ export default function PuppyDetails({ selectedPuppyId, setSelectedPuppyId }) {
   }
   // 3. Information about the selected puppy has returned from the API.
   else if (player) {
+    let puppy = player.player
     $details = (
     <>
     <h3>
-      {player.name} #{player.id}
+      {puppy.name} #{puppy.id}
     </h3>
-    <p>{player.breed}</p>
-    <p>Team {player.team?.name ?? "Unassigned"}</p>
-    <button onClick={() => removePuppy(player.id)}>
+    <p>{puppy.breed}</p>
+    <p>Team {puppy.team?.name ?? "Unassigned"}</p>
+    <button onClick={() => removePuppy(puppy.id)}>
       Remove from roster
     </button>
     <figure>
-      <img src={player.imageUrl} alt={player.name} />
+      <img src={puppy.imageUrl} alt={puppy.name} />
     </figure>
   </>
 );
